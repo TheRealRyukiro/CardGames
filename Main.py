@@ -1,5 +1,5 @@
 # Imports
-from Card import Card
+from Game import *
 from time import sleep
 from os import system
 from sys import stdout
@@ -63,7 +63,11 @@ def mainLoop(Testing = False):
             else:
                 print(f"Sorry, {answer} is not a valid choice. Please check your spelling and try again. Type games if you want to see the list of games")
     elif Testing:
+        clearScreen()
         magicText("Entered Testing Mode...", 0.05)
-        pass
+        sixDeck = Deck()
+        sixDeck.createDeck(howManyDecks=6)
+        player = PlayerHand(Cards=[Card(1,10), Card(3,1)])
+        print(f"Your Hand:\n{player.displayHand()}")
 
 if __name__ == "__main__": mainLoop(True)
